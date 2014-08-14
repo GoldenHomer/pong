@@ -5,13 +5,15 @@ function Paddle () {
 	this.height = 100;
 
 	this.y = game.height/2 - this.height/2;
-};
+
+	this.score = 0;
+}
 
 Paddle.prototype = Object.create(Entity.prototype);
 Paddle.prototype.constructor = Paddle;
 
 Paddle.prototype.update = function(){
-	Entity.prototype.update.apply(this, arguments)
+	Entity.prototype.update.apply(this, arguments);
 
 	this.y = Math.min(Math.max(this.y, 0), game.height - this.height); // Ensure y-coord of paddle stays within canvas
 }

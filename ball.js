@@ -21,21 +21,37 @@ Ball.prototype.reset = function(){
 		max = 5;
 
 	this.xVelocity = Math.floor(Math.random()*(max - min + 1) + min);
-	this.yVelocity = Math.random() > 0.5 ? 5 : -5 // ternary
+	this.yVelocity = Math.random() > 0.5 ? 5 : -5; // ternary
 }
 
 Ball.prototype.update = function(){
-	Entity.prototype.update.apply(this, arguments)// overriding the update method.
+	Entity.prototype.update.apply(this, arguments);// overriding the update method.
 
 	if(this.y > game.height - this.height || this.y < 0){ 
-		this.yVelocity *= -1 //if ball goes offscreen, reverse direction (vector).
+		this.yVelocity *= -1; //if ball goes offscreen, reverse direction (vector).
 	}
 
 	if(this.x > game.width){
-		this.reset()
+		game.player.score += 1;
+		this.reset();
 	}
 
 	if(this.x < 0){
-		this.reset()
+		game.bot.score += 1;
+		this.reset();
+	}
+
+	if(this.intersect(game.bot)){
+		var hitter = game.bot;
+	}
+	else if(this.intersect(game.player)){
+		var hitter = game.player;
+	}
+
+	if(hitter){
+		this.xVelocity *= -1.1; //Increase speed of ball when hit
+		this.yVelocity *= -1.1;
+
+		this.yVelocity += hitter.yVelocity/2;
 	}
 }

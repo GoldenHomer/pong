@@ -7,7 +7,7 @@ function Entity () {
 
 	this.xVelocity = 0;
 	this.yVelocity = 0;
-};
+}
 
 Entity.prototype.update = function(){
 	this.x += this.xVelocity;
@@ -15,7 +15,7 @@ Entity.prototype.update = function(){
 };
 
 Entity.prototype.draw = function(context){
-	context.fillStyle = '#ffffff';
+	context.fillStyle = '#fff';
 	context.fillRect(this.x, this.y, this.width, this.height);
 };
 
