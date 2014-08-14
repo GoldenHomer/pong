@@ -12,3 +12,11 @@ function Ball () {
 
 Ball.prototype = Object.create(Entity.prototype);
 Ball.prototype.constructor = Ball;
+
+Ball.prototype.update = function(){
+	Entity.prototype.update.apply(this, arguments)// overriding the update method.
+
+	if(this.y > game.height - this.height || this.y < 0){ 
+		this.yVelocity *= -1 //if ball goes offscreen, reverse direction (vector).
+	}
+}
