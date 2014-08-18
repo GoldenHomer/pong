@@ -1,4 +1,5 @@
 function Entity () {
+	// Entities are the square-shaped ball (weird right?) and the paddles
 	this.x = 0;
 	this.y = 0;
 
@@ -15,7 +16,7 @@ Entity.prototype.update = function(){
 };
 
 Entity.prototype.draw = function(context){
-	context.fillStyle = '#fff';
+	context.fillStyle = '#ffffff';
 	context.fillRect(this.x, this.y, this.width, this.height);
 };
 

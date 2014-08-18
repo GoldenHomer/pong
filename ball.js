@@ -21,7 +21,7 @@ Ball.prototype.reset = function(){
 		max = 5;
 
 	this.xVelocity = Math.floor(Math.random()*(max - min + 1) + min);
-	this.yVelocity = Math.random() > 0.5 ? 5 : -5; // ternary
+	this.yVelocity = Math.random() > 0.5 ? 5 : -5;
 }
 
 Ball.prototype.update = function(){

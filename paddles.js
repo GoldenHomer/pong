@@ -27,7 +27,7 @@ Player.prototype = Object.create(Paddle.prototype);
 Player.prototype.constructor = Player;
 
 Player.prototype.update = function(){
-	var speed = 15;
+	var speed = 15; // Adjustable for paddle speed
 
 	if(game.keyPressed.up){
 		this.yVelocity = -speed;

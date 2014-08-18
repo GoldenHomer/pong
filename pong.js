@@ -1,19 +1,17 @@
-function Background () {
-	
-}
+function Background(){}
 
 Background.prototype.draw = function(context) {
-	context.fillStyle = '#000';
+	context.fillStyle = '#000000';
 	context.fillRect(0, 0, game.width, game.height);
 
-	context.fillStyle = '#fff';
+	// Scoreboard
+	context.fillStyle = '#ffffff';
 	context.font = '40px monospace';
 	context.fillText(game.player.score, game.width * 3/8, 50);
 	context.fillText(game.bot.score, game.width * 5/8, 50);
-};
+}
 
-var canvas = $('canvas')[0],  //grab the canvas element on the page
-	game = new Game(canvas);
+var game = new Game($('canvas')[0]); //grab the canvas element on the page
 
 game.entities = [
 	new Background(),
@@ -23,4 +21,4 @@ game.entities = [
 ];
 
 game.start();
-game.focus();
+$('canvas')[0].focus();
