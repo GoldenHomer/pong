@@ -1,3 +1,3 @@
-Pong built in Javascript with canvas and using a dab of jQuery.
+Pong built in Javascript with HTML5 Canvas and using a dab of jQuery.
 
-I'll get it deployed on Heroku when it actually works.
+http://joselcontreras.com/pung/pung.html
